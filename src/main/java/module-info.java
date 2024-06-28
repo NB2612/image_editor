@@ -8,6 +8,7 @@ module com.nb2506.image_editor {
     requires net.synedra.validatorfx;
 
     requires opencv;
+    requires java.desktop;
 
     opens com.nb2506.image_editor to javafx.fxml;
     exports com.nb2506.image_editor;

@@ -67,7 +67,6 @@ public class MainController {
      * @param img изображение для отображения
      */
     public void setImageView(Image img){
-        assert (img != null);
         imageView.setFitHeight(img.getHeight());
         imageView.setFitWidth(img.getWidth());
         imageView.setImage(img);
@@ -160,9 +159,12 @@ public class MainController {
         fileChooser.getExtensionFilters().add(extFilter);
         File file = fileChooser.showOpenDialog(new Stage());
         try {
-            Image img = new Image(file.toString());
+            Image img = new Image(file.toURI().toString());
             setImageView(img);
-        } catch (Exception ignored){}
+        } catch (Exception e){
+            new MainApplication().createException("Ошибка импорта изображения", e);
+        }
+
     }
 
     @FXML

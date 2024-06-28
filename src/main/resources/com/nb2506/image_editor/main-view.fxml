@@ -22,7 +22,7 @@
 <VBox prefHeight="600.0" prefWidth="900.0" scaleShape="false" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.nb2506.image_editor.controllers.MainController">
   <MenuBar VBox.vgrow="NEVER">
     <Menu mnemonicParsing="false" text="Файл">
-      <MenuItem mnemonicParsing="false" onAction="#onCreateImageButtonClick" text="Сделать фото с вебкамеры" />
+      <MenuItem mnemonicParsing="false" onAction="#onCreateImageButtonClick" text="Сделать фото с веб-камеры" />
       <MenuItem mnemonicParsing="false" onAction="#onOpenImageButtonClick" text="Открыть" />
       <SeparatorMenuItem mnemonicParsing="false" />
       <MenuItem mnemonicParsing="false" onAction="#onClearMenuItemClick" text="Очистить" />

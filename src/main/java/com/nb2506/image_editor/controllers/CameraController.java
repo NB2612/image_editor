@@ -59,6 +59,7 @@ public class CameraController {
             } else {
                 new MainApplication().createException("Невозможно открыть соединение с камерой...",
                         new Exception("Возможно камера не подключена или используется другим приложением"));
+                MakePhotoButton.setDisable(true);
                 System.err.println("Невозможно открыть соединение с камерой...");
             }
         }
