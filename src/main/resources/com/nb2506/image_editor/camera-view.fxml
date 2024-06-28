@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+
+<BorderPane prefHeight="311.0" prefWidth="386.0" xmlns="http://javafx.com/javafx/22"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.nb2506.image_editor.controllers.CameraController">
+  <bottom>
+    <HBox alignment="center" spacing="15.0">
+      <padding>
+        <Insets bottom="25" left="25" right="25" top="25" />
+      </padding>
+      <Button fx:id="MakePhotoButton" alignment="center" onAction="#MakePhotoButtonClick" text="Сделать снимок" />
+    </HBox>
+  </bottom>
+  <center>
+    <ImageView fx:id="currentFrame" />
+  </center>
+</BorderPane>

@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+
+<VBox prefHeight="600.0" prefWidth="900.0" scaleShape="false" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.nb2506.image_editor.controllers.MainController">
+  <MenuBar VBox.vgrow="NEVER">
+    <Menu mnemonicParsing="false" text="Файл">
+      <MenuItem mnemonicParsing="false" onAction="#onCreateImageButtonClick" text="Сделать фото с вебкамеры" />
+      <MenuItem mnemonicParsing="false" onAction="#onOpenImageButtonClick" text="Открыть" />
+      <SeparatorMenuItem mnemonicParsing="false" />
+      <MenuItem mnemonicParsing="false" onAction="#onClearMenuItemClick" text="Очистить" />
+    </Menu>
+  </MenuBar>
+  <SplitPane centerShape="false" dividerPositions="0.2505567928730512" focusTraversable="true" nodeOrientation="LEFT_TO_RIGHT" VBox.vgrow="ALWAYS">
+      <VBox alignment="TOP_CENTER" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="222.0">
+          <Label alignment="CENTER" minWidth="60.0" style="&#10;" text="Меню" textAlignment="CENTER">
+              <font>
+                  <Font size="18.0" />
+              </font>
+              <textFill>
+                  <Color red="0.624" green="0.624" blue="0.624" />
+              </textFill>
+          </Label>
+         <Separator prefWidth="200.0" />
+         <AnchorPane prefHeight="98.0" prefWidth="222.0">
+            <children>
+               <Label layoutX="14.0" layoutY="7.0" text="Канал изображения" />
+               <RadioButton fx:id="rChannel" layoutX="14.0" layoutY="31.0" mnemonicParsing="false" text="Красный">
+                  <toggleGroup>
+                     <ToggleGroup fx:id="channel" />
+                  </toggleGroup></RadioButton>
+               <RadioButton fx:id="gChannel" layoutX="14.0" layoutY="50.0" mnemonicParsing="false" text="Зеленый" toggleGroup="$channel" />
+               <RadioButton fx:id="bChannel" layoutX="14.0" layoutY="70.0" mnemonicParsing="false" text="Синий" toggleGroup="$channel" />
+               <Button fx:id="colorConfirmButton" layoutX="125.0" layoutY="46.0" mnemonicParsing="false" onAction="#onColorConfirmButtonClick" text="Применить" />
+            </children>
+         </AnchorPane>
+         <Separator prefWidth="200.0" />
+         <AnchorPane prefHeight="92.0" prefWidth="222.0">
+            <children>
+               <Label contentDisplay="BOTTOM" layoutX="54.0" layoutY="6.0" text="Добавление границы" />
+               <Label layoutX="25.0" layoutY="27.0" text="px">
+                  <graphic>
+                     <TextField fx:id="borderSizeArea" prefHeight="25.0" prefWidth="155.0" promptText="Введите размер границы" />
+                  </graphic>
+               </Label>
+               <Button fx:id="borderApplyButton" layoutX="72.0" layoutY="59.0" mnemonicParsing="false" onAction="#onBorderApplyButtonClick" prefHeight="25.0" prefWidth="79.0" text="Применить" />
+            </children>
+         </AnchorPane>
+         <Separator prefWidth="200.0" />
+         <AnchorPane prefHeight="64.0" prefWidth="222.0">
+            <children>
+               <Button fx:id="colorGrayButton" layoutX="15.0" layoutY="10.0" mnemonicParsing="false" onAction="#onColorGrayButtonClick" prefHeight="44.0" prefWidth="192.0" text="Преобразовать в оттенки серого" textAlignment="CENTER" wrapText="true" />
+            </children>
+         </AnchorPane>
+         <Separator prefWidth="200.0" />
+         <AnchorPane prefHeight="213.0" prefWidth="222.0">
+            <children>
+               <Label layoutX="59.0" layoutY="6.0" text="Нарисовать линию" />
+               <TextField fx:id="startXArea" layoutX="46.0" layoutY="30.0" prefHeight="25.0" prefWidth="70.0" promptText="Начало" />
+               <TextField fx:id="endXArea" layoutX="126.0" layoutY="30.0" prefHeight="25.0" prefWidth="70.0" promptText="Конец" />
+               <TextField fx:id="startYArea" layoutX="46.0" layoutY="65.0" prefHeight="25.0" prefWidth="70.0" promptText="Начало" />
+               <TextField fx:id="endYArea" layoutX="126.0" layoutY="65.0" prefHeight="25.0" prefWidth="70.0" promptText="Конец" />
+               <Label layoutX="27.0" layoutY="34.0" text="x:" />
+               <Label layoutX="27.0" layoutY="69.0" text="y:" />
+               <Label contentDisplay="BOTTOM" layoutX="42.0" layoutY="96.0" prefHeight="46.0" prefWidth="149.0" text="Толщина линии" textAlignment="CENTER">
+                  <graphic>
+                     <TextField fx:id="thicknessArea" promptText="px" />
+                  </graphic>
+               </Label>
+               <Button fx:id="applyLineButton" layoutX="72.0" layoutY="152.0" mnemonicParsing="false" onAction="#onApplyLineButtonClick" prefHeight="25.0" prefWidth="79.0" text="Применить" />
+            </children>
+         </AnchorPane>
+      </VBox>
+       <ScrollPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" pannable="true" prefHeight="546.0" prefWidth="774.0">
+           <ImageView fx:id="imageView" fitHeight="552.0" fitWidth="752.0" pickOnBounds="true" preserveRatio="true" />
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </padding>
+       </ScrollPane>
+  </SplitPane>
+</VBox>
